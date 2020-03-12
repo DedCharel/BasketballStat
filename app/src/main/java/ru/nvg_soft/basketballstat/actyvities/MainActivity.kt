@@ -1,30 +1,43 @@
-package ru.nvg_soft.basketballstat
+package ru.nvg_soft.basketballstat.actyvities
 
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import ru.nvg_soft.basketballstat.R
+import ru.nvg_soft.basketballstat.fragments.ReportFragment
+import ru.nvg_soft.basketballstat.fragments.SettingsFragment
+import ru.nvg_soft.basketballstat.fragments.EventFragment
+import ru.nvg_soft.basketballstat.fragments.PersonFragment
 
 
 class MainActivity : AppCompatActivity() {
 
-    var listOfPerson = ArrayList<Person>()
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
-                val fragment = HomeFragment()
+            R.id.navigation_event -> {
+                val fragment =
+                    EventFragment()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
 
             }
+            R.id.navigation_person -> {
+                val fragment =
+                    PersonFragment()
+                addFragment(fragment)
+                return@OnNavigationItemSelectedListener true
+            }
             R.id.navigation_reports -> {
-                val fragment = ReportFragment()
+                val fragment =
+                    ReportFragment()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
-                val fragment = SettingsFragment()
+                val fragment =
+                    SettingsFragment()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -39,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-        val fragment = HomeFragment()
+        val fragment = EventFragment()
         addFragment(fragment)
 
 

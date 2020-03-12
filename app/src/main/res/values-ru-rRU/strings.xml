@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Баскебольная статистика</string>
-    <string name="title_home">Главная</string>
+    <string name="app_name">Блокнот тренера</string>
+    <string name="title_event">События</string>
     <string name="title_reports">Отчеты</string>
     <string name="title_settings">Настройки</string>
+    <string name="title_person">Игроки</string>
+    <string name="team">Команда</string>
 </resources>

@@ -1,4 +1,4 @@
-package ru.nvg_soft.basketballstat
+package ru.nvg_soft.basketballstat.adapters
 
 import android.content.Context
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.view.LayoutInflater
 import kotlinx.android.synthetic.main.person.view.*
+import ru.nvg_soft.basketballstat.models.Person
+import ru.nvg_soft.basketballstat.R
 
 
 class PersonAdapter:BaseAdapter {

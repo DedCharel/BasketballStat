@@ -1,4 +1,4 @@
-package ru.nvg_soft.basketballstat
+package ru.nvg_soft.basketballstat.models
 
 import android.content.ContentValues
 import android.content.Context
