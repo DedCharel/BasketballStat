@@ -1,14 +1,15 @@
 package ru.nvg_soft.basketballstat
 
+
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.widget.TextView
+
 
 class MainActivity : AppCompatActivity() {
 
-
+    var listOfPerson = ArrayList<Person>()
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
@@ -40,9 +41,14 @@ class MainActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         val fragment = HomeFragment()
         addFragment(fragment)
+
+
+
+
     }
    private fun addFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.getSimpleName())
             .commit()
     }
+
 }
