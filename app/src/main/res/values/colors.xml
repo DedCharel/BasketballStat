@@ -7,4 +7,5 @@
     <color name="darkblue">#FF0099CC</color>
     <color name="customeblue">#3b5998</color>
     <color name="gray">#d5d4d4d4</color>
+    <color name="black">#000000</color>
 </resources>

@@ -69,5 +69,17 @@ class PersonFragment: Fragment() {
         list.add(Person("Иванов Иван"))
         list.add(Person("Петров Петр"))
         list.add(Person("Сергеев Сергей"))
+        list.add(Person("Иванов Иван"))
+        list.add(Person("Петров Петр"))
+        list.add(Person("Сергеев Сергей"))
+        list.add(Person("Иванов Иван"))
+        list.add(Person("Петров Петр"))
+        list.add(Person("Сергеев Сергей"))
+        list.add(Person("Иванов Иван"))
+        list.add(Person("Петров Петр"))
+        list.add(Person("Сергеев Сергей"))
+        list.add(Person("Иванов Иван"))
+        list.add(Person("Петров Петр"))
+        list.add(Person("Сергеев Сергей"))
     }
 }
