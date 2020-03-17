@@ -6,17 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import com.arellomobile.mvp.MvpAppCompatFragment
+import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_persons.*
 import ru.nvg_soft.basketballstat.R
 import ru.nvg_soft.basketballstat.adapters.PersonAdapter
 import ru.nvg_soft.basketballstat.models.DBManager
 import ru.nvg_soft.basketballstat.models.Person
+import ru.nvg_soft.basketballstat.presenters.PersonPresenter
+import ru.nvg_soft.basketballstat.views.PersonView
 
-class PersonFragment: Fragment() {
-    val list = ArrayList<Person>()
+class PersonFragment: MvpAppCompatFragment(), PersonView {
+    @InjectPresenter
+    lateinit var personPresenter: PersonPresenter
+
+    var list = ArrayList<Person>()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val myView = inflater.inflate(R.layout.fragment_persons,container,false)
-        loadPersonList()
+        list = personPresenter.loadPersonList()
         showPersonList(myView)
         return myView
     }
@@ -65,21 +72,5 @@ class PersonFragment: Fragment() {
 
     }
 
-    fun loadPersonList(){
-        list.add(Person("Иванов Иван"))
-        list.add(Person("Петров Петр"))
-        list.add(Person("Сергеев Сергей"))
-        list.add(Person("Иванов Иван"))
-        list.add(Person("Петров Петр"))
-        list.add(Person("Сергеев Сергей"))
-        list.add(Person("Иванов Иван"))
-        list.add(Person("Петров Петр"))
-        list.add(Person("Сергеев Сергей"))
-        list.add(Person("Иванов Иван"))
-        list.add(Person("Петров Петр"))
-        list.add(Person("Сергеев Сергей"))
-        list.add(Person("Иванов Иван"))
-        list.add(Person("Петров Петр"))
-        list.add(Person("Сергеев Сергей"))
-    }
+
 }

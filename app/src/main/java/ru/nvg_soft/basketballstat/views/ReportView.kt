@@ -2,5 +2,5 @@ package ru.nvg_soft.basketballstat.views
 
 import com.arellomobile.mvp.MvpView
 
-interface PersonView:MvpView {
+interface ReportView:MvpView {
 }
