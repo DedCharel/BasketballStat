@@ -17,6 +17,7 @@ import ru.nvg_soft.basketballstat.presenters.EventPresenter
 import ru.nvg_soft.basketballstat.views.EventView
 
 class EventFragment : MvpAppCompatFragment(),EventView {
+
     @InjectPresenter
     lateinit var eventPresenter: EventPresenter
 

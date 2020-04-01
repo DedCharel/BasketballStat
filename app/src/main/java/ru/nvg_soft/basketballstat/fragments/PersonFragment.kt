@@ -17,6 +17,7 @@ import ru.nvg_soft.basketballstat.presenters.PersonPresenter
 import ru.nvg_soft.basketballstat.views.PersonView
 
 class PersonFragment: MvpAppCompatFragment(), PersonView {
+
     @InjectPresenter
     lateinit var personPresenter: PersonPresenter
 

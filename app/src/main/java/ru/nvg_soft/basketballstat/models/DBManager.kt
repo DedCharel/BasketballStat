@@ -16,19 +16,19 @@ class DBManager{
     var sqlDB:SQLiteDatabase?=null
 
     constructor(context:Context){
-        var db=DatabaseHelperStat(context)
-        sqlDB=db.writableDatabase
-        var values = ContentValues()
-        values.put("Name", "Иванов Иван Иванович")
-        values.put("DOB",1 )
-        values.put("Height",160 )
-        values.put("Wright",60 )
-        db.Insert(values,"Person")
-        values.put("Name", "Иванов Иван Иванович")
-        values.put("DOB",1 )
-        values.put("Height",160 )
-        values.put("Wright",60 )
-        db.Insert(values,"Person")
+//        var db=DatabaseHelperStat(context)
+//        sqlDB=db.writableDatabase
+//        var values = ContentValues()
+//        values.put("Name", "Иванов Иван Иванович")
+//        values.put("DOB",1 )
+//        values.put("Height",160 )
+//        values.put("Wright",60 )
+//        db.Insert(values,"Person")
+//        values.put("Name", "Иванов Иван Иванович")
+//        values.put("DOB",1 )
+//        values.put("Height",160 )
+//        values.put("Wright",60 )
+//        db.Insert(values,"Person")
 
     }
 

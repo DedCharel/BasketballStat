@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import ru.nvg_soft.basketballstat.R
 
 class SettingsFragment : Fragment() {
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_settings, container, false)
     override fun onActivityCreated(savedInstanceState: Bundle?) {

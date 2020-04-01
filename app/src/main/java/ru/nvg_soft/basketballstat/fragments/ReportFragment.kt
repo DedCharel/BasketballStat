@@ -20,6 +20,7 @@ import ru.nvg_soft.basketballstat.views.ReportView
 
 
 class ReportFragment : MvpAppCompatFragment(), ReportView {
+
     @InjectPresenter
     lateinit var reportPresenter: ReportPresenter
 

@@ -14,7 +14,6 @@ import ru.nvg_soft.basketballstat.fragments.PersonFragment
 
 
 class MainActivity : AppCompatActivity() {
-
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_event -> {

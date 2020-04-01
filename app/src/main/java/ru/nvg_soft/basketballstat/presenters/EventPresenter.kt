@@ -7,4 +7,5 @@ import ru.nvg_soft.basketballstat.views.EventView
 
 @InjectViewState
 class EventPresenter: MvpPresenter<EventView>() {
+
 }

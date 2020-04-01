@@ -9,6 +9,7 @@ import ru.nvg_soft.basketballstat.views.PersonView
 class PersonPresenter:MvpPresenter<PersonView>() {
 
     fun loadPersonList():ArrayList<Person>{
+
         val list = ArrayList<Person>()
         list.add(Person("Иванов Иван"))
         list.add(Person("Петров Петр"))
