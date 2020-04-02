@@ -1,17 +1,15 @@
 package ru.nvg_soft.basketballstat.fragments
 
+
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
-import kotlinx.android.synthetic.main.fragment_persons.*
 import ru.nvg_soft.basketballstat.R
 import ru.nvg_soft.basketballstat.adapters.PersonAdapter
-import ru.nvg_soft.basketballstat.models.DBManager
 import ru.nvg_soft.basketballstat.models.Person
 import ru.nvg_soft.basketballstat.presenters.PersonPresenter
 import ru.nvg_soft.basketballstat.views.PersonView
@@ -24,9 +22,21 @@ class PersonFragment: MvpAppCompatFragment(), PersonView {
     var list = ArrayList<Person>()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val myView = inflater.inflate(R.layout.fragment_persons,container,false)
-        list = personPresenter.loadPersonList()
+
+        list = personPresenter.loadQuery(layoutInflater.context,"%")
         showPersonList(myView)
+        val fab = myView.findViewById<View>(R.id.myFab)
+        fab.setOnClickListener(){
+            personPresenter.addPerson(layoutInflater.context)
+
+        }
         return myView
+    }
+
+    override fun onResume() {
+        super.onResume()
+        list = personPresenter.loadQuery(layoutInflater.context,"%")
+        showPersonList(view!!)
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -35,8 +45,8 @@ class PersonFragment: MvpAppCompatFragment(), PersonView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        loadQuery("%")
-    }
+
+        }
 
     private fun loadQuery(title: String) {
 //        var dbManager=
@@ -72,6 +82,9 @@ class PersonFragment: MvpAppCompatFragment(), PersonView {
         )
 
     }
+
+
+
 
 
 }

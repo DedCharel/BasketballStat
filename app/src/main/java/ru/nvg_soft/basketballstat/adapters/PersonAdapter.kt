@@ -22,6 +22,7 @@ class PersonAdapter:BaseAdapter {
         var myView = inflater.inflate(R.layout.person,null)
         var person = listOfPerson[p0]
         myView.tvName.text = person.name
+        myView.tvDob.text = person.dob.toString()
         return myView
     }
 
