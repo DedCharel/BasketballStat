@@ -28,7 +28,9 @@ class AddPersonActivity:MvpAppCompatActivity(),AddPersonView {
             id=bundle.getInt("ID",0)
             if(id!=0) {
                 etName.setText(bundle.getString("name") )
-
+                etDOB.setText(bundle.getString("dob") )
+                etHeight.setText(bundle.getString("height") )
+                etWeight.setText(bundle.getString("weight") )
 
             }
         }catch (ex:Exception){}

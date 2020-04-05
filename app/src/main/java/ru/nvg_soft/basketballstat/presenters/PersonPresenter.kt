@@ -20,7 +20,7 @@ class PersonPresenter:MvpPresenter<PersonView>() {
 
 
         var dbManager= DBManager(context)
-        val projections= arrayOf("ID","Name", "DOB")
+        val projections= arrayOf("ID","Name", "DOB", "Weight", "Height")
         val selectionArgs= arrayOf(title)
         val cursor=dbManager.Query(projections,"Name like ?",selectionArgs,"Name")
         list.clear()
@@ -30,9 +30,10 @@ class PersonPresenter:MvpPresenter<PersonView>() {
                 val id=cursor.getInt(cursor.getColumnIndex("ID"))
                 val name=cursor.getString(cursor.getColumnIndex("Name"))
                 val dob=cursor.getInt(cursor.getColumnIndex("DOB"))
-//                val Description=cursor.getString(cursor.getColumnIndex("Description"))
+                val height=cursor.getInt(cursor.getColumnIndex("Height"))
+                val weight=cursor.getInt(cursor.getColumnIndex("Weight"))
 
-                list.add(Person(id, name, dob))
+                list.add(Person(id, name, dob, height, weight))
 
             }while (cursor.moveToNext())
         }
