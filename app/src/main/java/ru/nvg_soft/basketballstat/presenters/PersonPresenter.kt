@@ -27,12 +27,12 @@ class PersonPresenter:MvpPresenter<PersonView>() {
         if(cursor.moveToFirst()){
 
             do{
-                val ID=cursor.getInt(cursor.getColumnIndex("ID"))
+                val id=cursor.getInt(cursor.getColumnIndex("ID"))
                 val name=cursor.getString(cursor.getColumnIndex("Name"))
                 val dob=cursor.getInt(cursor.getColumnIndex("DOB"))
 //                val Description=cursor.getString(cursor.getColumnIndex("Description"))
 
-                list.add(Person(name, dob))
+                list.add(Person(id, name, dob))
 
             }while (cursor.moveToNext())
         }

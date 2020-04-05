@@ -18,7 +18,7 @@
             android:orientation="horizontal">
 
         <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/tvAddName"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:text="Name" />
@@ -38,7 +38,7 @@
             android:orientation="horizontal">
 
         <TextView
-                android:id="@+id/tvDOB"
+                android:id="@+id/tvAddDob"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:text="DOB" />
@@ -59,7 +59,7 @@
             android:orientation="horizontal">
 
         <TextView
-                android:id="@+id/tvHeight"
+                android:id="@+id/tvAddHeight"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:text="Height" />
@@ -73,7 +73,7 @@
                 android:inputType="number" />
 
         <TextView
-                android:id="@+id/tvWeight"
+                android:id="@+id/tvAddWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Weight" />

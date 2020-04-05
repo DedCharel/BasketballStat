@@ -2,10 +2,11 @@ package ru.nvg_soft.basketballstat.fragments
 
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import ru.nvg_soft.basketballstat.R
@@ -28,7 +29,6 @@ class PersonFragment: MvpAppCompatFragment(), PersonView {
         val fab = myView.findViewById<View>(R.id.myFab)
         fab.setOnClickListener(){
             personPresenter.addPerson(layoutInflater.context)
-
         }
         return myView
     }
@@ -46,40 +46,16 @@ class PersonFragment: MvpAppCompatFragment(), PersonView {
         super.onCreate(savedInstanceState)
 
 
+
         }
 
-    private fun loadQuery(title: String) {
-//        var dbManager=
-//            DBManager(layoutInflater.context)
-//        val projections= arrayOf("name")
-//        val selectionArgs= arrayOf(title)
-//        val cursor=dbManager.Query(projections,"Title like ?",selectionArgs,"Name")
-//        list.clear()
-//        if(cursor.moveToFirst()){
-//
-//            do{
-//                val name=cursor.getString(cursor.getColumnIndex("name")
-//                )
-//
-//                list.add(Person(name))
-//
-//            }while (cursor.moveToNext())
-//        }
 
-//        var myPersonAdapter= PersonAdapter(
-//            layoutInflater.context,
-//            list
-//        )
-//        lvPerson.adapter=myPersonAdapter
 
-    }
 
     fun showPersonList(view: View){
-        val  myListView = view.findViewById<ListView>(R.id.lvPerson)
-        myListView.adapter = PersonAdapter(
-            layoutInflater.context,
-            listOfPerson = list
-        )
+        val  myListView: RecyclerView = view.findViewById(R.id.lvPerson)
+        myListView.layoutManager = LinearLayoutManager(layoutInflater.context)
+        myListView.adapter = PersonAdapter(list = list)
 
     }
 

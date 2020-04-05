@@ -24,19 +24,21 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/team"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
             <Spinner
                     android:id="@+id/spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="32"/>
+                    android:layout_weight="32" />
+
         </LinearLayout>
 
-        <ListView
+        <android.support.v7.widget.RecyclerView
                 android:id="@+id/lvPerson"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
     </LinearLayout>
 
