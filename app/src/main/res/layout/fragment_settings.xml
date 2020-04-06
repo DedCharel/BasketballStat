@@ -1,11 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-            android:text="Settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="162dp"
-            tools:layout_editor_absoluteX="105dp" android:id="@+id/textView2"/>
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+        <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="15pt"
+                android:layout_height="15pt"
+                app:srcCompat="@drawable/ic_team_black_24dp" />
+
+        <TextView
+                android:id="@+id/tvTeam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:text="Team"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="105dp"
+                tools:layout_editor_absoluteY="162dp" />
+
+    </LinearLayout>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+        <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="15pt"
+                android:layout_height="15pt"
+                app:srcCompat="@drawable/ic_event_note_black_24dp" />
+
+        <TextView
+                android:id="@+id/tvTypeEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:text="Type event"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+    </LinearLayout>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+        <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="15pt"
+                android:layout_height="15pt"
+                app:srcCompat="@drawable/ic_info_outline_black_24dp" />
+
+        <TextView
+                android:id="@+id/tvInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:text="Information"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
