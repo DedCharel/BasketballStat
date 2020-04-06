@@ -42,6 +42,7 @@ class PersonAdapter(private val list: List<Person>): RecyclerView.Adapter<Person
         intent.putExtra("dob",person.dob.toString())
         intent.putExtra("height",person.height.toString())
         intent.putExtra("weight",person.weight.toString())
+    //    intent.putExtra("image",person.image)
         context.startActivity(intent)
     }
 }

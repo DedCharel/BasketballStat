@@ -32,6 +32,7 @@ class PersonPresenter:MvpPresenter<PersonView>() {
                 val dob=cursor.getInt(cursor.getColumnIndex("DOB"))
                 val height=cursor.getInt(cursor.getColumnIndex("Height"))
                 val weight=cursor.getInt(cursor.getColumnIndex("Weight"))
+               // val image=BitmapUtils.cursor.getInt(cursor.getColumnIndex("Weight"))
 
                 list.add(Person(id, name, dob, height, weight))
 

@@ -13,7 +13,7 @@ class DBManager{
     val dbVersion = 1
     val dbTable="Person"
     val sqlCreateTablePerson ="CREATE TABLE IF NOT EXISTS Person (ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT," +
-            " DOB INTEGER, Height INTEGER, Weight INTEGER )"
+            " DOB INTEGER, Height INTEGER, Weight INTEGER, Image blob )"
     var sqlDB:SQLiteDatabase?=null
 
     constructor(context:Context){
