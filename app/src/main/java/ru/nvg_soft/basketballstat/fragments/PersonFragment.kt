@@ -21,6 +21,7 @@ class PersonFragment: MvpAppCompatFragment(), PersonView {
     lateinit var personPresenter: PersonPresenter
 
     var list = ArrayList<Person>()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val myView = inflater.inflate(R.layout.fragment_persons,container,false)
 
