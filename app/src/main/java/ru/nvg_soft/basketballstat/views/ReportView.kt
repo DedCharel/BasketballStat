@@ -1,6 +1,7 @@
 package ru.nvg_soft.basketballstat.views
 
-import com.arellomobile.mvp.MvpView
 
-interface ReportView:MvpView {
+import moxy.MvpView
+
+interface ReportView: MvpView {
 }

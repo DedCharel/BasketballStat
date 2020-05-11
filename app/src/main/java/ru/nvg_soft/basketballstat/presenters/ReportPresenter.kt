@@ -1,10 +1,11 @@
 package ru.nvg_soft.basketballstat.presenters
 
-import com.arellomobile.mvp.InjectViewState
-import com.arellomobile.mvp.MvpPresenter
+
+import moxy.InjectViewState
+import moxy.MvpPresenter
 import ru.nvg_soft.basketballstat.views.ReportView
 
-@InjectViewState
+//@InjectViewState
 class ReportPresenter: MvpPresenter<ReportView>() {
 
 }

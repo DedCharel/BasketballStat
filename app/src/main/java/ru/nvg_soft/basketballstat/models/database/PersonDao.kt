@@ -3,14 +3,17 @@ package ru.nvg_soft.basketballstat.models.database
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import ru.nvg_soft.basketballstat.models.Person
+import androidx.room.Dao
 
 @Dao
 interface PersonDao {
-    @Query("SELECT * FROM person ORDER BY name")
+    @Query("SELECT * FROM person")
     fun getAllPerson(): LiveData<List<Person>>
 
     @Insert
-    fun insertPerson(vararg person: Person)
+    suspend fun insertAllPerson(vararg person: Person)
+    @Insert
+    fun insertPerson(person: Person)
 
     @Delete
     fun deletePerson(person: Person)

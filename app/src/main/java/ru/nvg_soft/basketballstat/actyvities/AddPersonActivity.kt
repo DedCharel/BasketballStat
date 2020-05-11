@@ -10,45 +10,41 @@ import android.os.Build
 
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat
+import android.util.Log
+
 
 import android.view.View
 import android.widget.Toast
-import com.arellomobile.mvp.MvpAppCompatActivity
-import com.arellomobile.mvp.presenter.InjectPresenter
+import androidx.appcompat.app.AppCompatActivity
+
+
+
 import kotlinx.android.synthetic.main.activity_add_person.*
+import moxy.MvpAppCompatActivity
+import moxy.ktx.moxyPresenter
+import moxy.presenter.InjectPresenter
 import ru.nvg_soft.basketballstat.R
-import ru.nvg_soft.basketballstat.models.DBManager
+import ru.nvg_soft.basketballstat.models.Person
 import ru.nvg_soft.basketballstat.presenters.AddPersonPresenter
 import ru.nvg_soft.basketballstat.views.AddPersonView
 
-class AddPersonActivity:MvpAppCompatActivity(),AddPersonView {
+class AddPersonActivity: MvpAppCompatActivity(R.layout.activity_add_person),AddPersonView {
 
-    @InjectPresenter
-    lateinit var addPersonPresenter: AddPersonPresenter
-    val dbTable="Person"
-    var id=0
+  //  @InjectPresenter
+  //  lateinit var addPersonPresenter: AddPersonPresenter
+    private val addPersonPresenter by moxyPresenter { AddPersonPresenter(this.application) }
+
+    private var id=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_person)
+       // setContentView(R.layout.activity_add_person)
+        addPersonPresenter.startActivity()
 
-        try{
-            var bundle:Bundle= intent.extras!!
-            id=bundle.getInt("ID",0)
-            if(id!=0) {
-                etName.setText(bundle.getString("name") )
-                etDOB.setText(bundle.getString("dob") )
-                etHeight.setText(bundle.getString("height") )
-                etWeight.setText(bundle.getString("weight"))
-             //  ivImagePerson.setImageBitmap(getImage(bundle.getByteArray("image")))
 
-            }
-        }catch (ex:Exception){}
-
-        ivImagePerson.setOnClickListener(View.OnClickListener {
-            checkPermission()
-        })
+//        ivImagePerson.setOnClickListener(View.OnClickListener {
+//            checkPermission()
+//        })
 //        ivRotateLeft.setOnClickListener(){
 //            ivImagePerson.invalidate()
 //            val bitmap = ivImagePerson.drawingCache
@@ -59,8 +55,41 @@ class AddPersonActivity:MvpAppCompatActivity(),AddPersonView {
 //        }
     }
 
+    override fun showActivity() {
+        try{
+            var bundle:Bundle= intent.extras!!
+            id=bundle.getInt("ID",0)
+            if(id!=0) {
+                etName.setText(bundle.getString("name") )
+                etDOB.setText(bundle.getString("dob") )
+                etHeight.setText(bundle.getString("height") )
+                etWeight.setText(bundle.getString("weight"))
+                //  ivImagePerson.setImageBitmap(getImage(bundle.getByteArray("image")))
+
+            }
+        }catch (ex:Exception){}
+    }
+
+    override fun onResume() {
+        super.onResume()
+        addPersonPresenter.startActivity()
+    }
     fun onClickAdd(view: View){
-        var dbManager = DBManager(this)
+
+        if(id != 0){
+            addPersonPresenter.updatePerson(Person(id, etName.text.toString(),etDOB.text.toString().toInt(),
+                etHeight.text.toString().toInt(),etWeight.text.toString().toInt()))
+           // Toast.makeText(this, " person is update", Toast.LENGTH_LONG).show()
+            Log.d("M_AddPersonActivity","updatePerson")
+        } else{
+        addPersonPresenter.addPerson(Person(null, etName.text.toString(),etDOB.text.toString().toInt(),
+                            etHeight.text.toString().toInt(),etWeight.text.toString().toInt()))
+           // Toast.makeText(this, " person is added", Toast.LENGTH_LONG).show()
+          //  Log.d("M_AddPersonActivity","addPerson")
+        }
+        finish()
+
+      /*  var dbManager = DBManager(this)
         var values = ContentValues()
         values.put("Name", etName.text.toString())
         values.put("DOB", etDOB.text.toString())
@@ -84,11 +113,11 @@ class AddPersonActivity:MvpAppCompatActivity(),AddPersonView {
             } else {
                 Toast.makeText(this, " cannot add person ", Toast.LENGTH_LONG).show()
             }
-        }
+        }*/
 
     }
 
-    val READIMAGE:Int = 253
+ /*   val READIMAGE:Int = 253
     fun checkPermission(){
         if(Build.VERSION.SDK_INT>=23){
             if (ActivityCompat.checkSelfPermission(this,
@@ -147,6 +176,6 @@ class AddPersonActivity:MvpAppCompatActivity(),AddPersonView {
     }
     fun getImage(image: ByteArray): Bitmap? {
         return BitmapFactory.decodeByteArray(image, 0, image.size)
-    }
+    }*/
 }
 

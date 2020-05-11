@@ -3,9 +3,11 @@ package ru.nvg_soft.basketballstat.actyvities
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.nvg_soft.basketballstat.R
 import ru.nvg_soft.basketballstat.fragments.ReportFragment
 import ru.nvg_soft.basketballstat.fragments.SettingsFragment
@@ -50,18 +52,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         val fragment = EventFragment()
         addFragment(fragment)
-
-
-
-
     }
    private fun addFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.getSimpleName())
+        supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.simpleName)
             .commit()
     }
+
+
 
 }

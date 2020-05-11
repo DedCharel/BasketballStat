@@ -2,27 +2,30 @@ package ru.nvg_soft.basketballstat.fragments
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.Fragment
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.arellomobile.mvp.MvpAppCompatFragment
-import com.arellomobile.mvp.presenter.InjectPresenter
+
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.series.BarGraphSeries
 import com.jjoe64.graphview.series.LineGraphSeries
 import com.jjoe64.graphview.series.DataPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_reports.*
+import moxy.MvpAppCompatFragment
+import moxy.ktx.moxyPresenter
+import moxy.presenter.InjectPresenter
 import ru.nvg_soft.basketballstat.R
 import ru.nvg_soft.basketballstat.presenters.ReportPresenter
 import ru.nvg_soft.basketballstat.views.ReportView
 
 
-class ReportFragment : MvpAppCompatFragment(), ReportView {
+class ReportFragment : MvpAppCompatFragment(R.layout.fragment_reports), ReportView {
 
-    @InjectPresenter
-    lateinit var reportPresenter: ReportPresenter
+//    @InjectPresenter
+//    lateinit var reportPresenter: ReportPresenter
+    private val reportPresenter by moxyPresenter { ReportPresenter() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val myView = inflater.inflate(R.layout.fragment_reports,container,false)
